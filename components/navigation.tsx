@@ -4,11 +4,17 @@ import { useState, useEffect } from "react"
 import { Button } from "@/components/ui/button"
 import { Menu, X } from "lucide-react"
 import { ThemeToggle } from "./theme-toggle"
+import Link from "next/link"
+import { usePathname } from "next/navigation"
 
 export function Navigation() {
   const [isScrolled, setIsScrolled] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
-
+  const pathname = usePathname()
+  
+  // Check if we're on the home page or another page
+  const isHomePage = pathname === "/"
+  
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50)
@@ -18,14 +24,14 @@ export function Navigation() {
   }, [])
 
   const navItems = [
-    { label: "About", href: "#about" },
-    { label: "Services", href: "#services" },
-    { label: "Projects", href: "#projects" },
-    { label: "Experience", href: "#experience" },
+    { label: "About", href: isHomePage ? "#about" : "/#about" },
+    { label: "Services", href: isHomePage ? "#services" : "/#services" },
+    { label: "Projects", href: isHomePage ? "#projects" : "/#projects" },
+    { label: "Experience", href: isHomePage ? "#experience" : "/#experience" },
     { label: "Blog", href: "/blog" },
     { label: "Tools", href: "/tools" },
     { label: "Design", href: "/design" },
-    { label: "Contact", href: "#contact" },
+    { label: "Contact", href: isHomePage ? "#contact" : "/#contact" },
   ]
 
   return (
@@ -36,24 +42,24 @@ export function Navigation() {
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
-          <a
-            href="#"
+          <Link
+            href="/"
             className="font-mono text-xl font-bold text-primary hover:scale-110 transition-transform duration-300"
           >
             SM
-          </a>
+          </Link>
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center gap-6">
             {navItems.map((item) => (
-              <a
+              <Link
                 key={item.label}
                 href={item.href}
                 className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors duration-300 relative group"
               >
                 {item.label}
                 <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full" />
-              </a>
+              </Link>
             ))}
             <ThemeToggle />
           </div>
@@ -71,14 +77,14 @@ export function Navigation() {
           <div className="md:hidden py-4 border-t border-border animate-fade-in">
             <div className="flex flex-col gap-4">
               {navItems.map((item) => (
-                <a
+                <Link
                   key={item.label}
                   href={item.href}
                   className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors py-2"
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
                   {item.label}
-                </a>
+                </Link>
               ))}
             </div>
           </div>

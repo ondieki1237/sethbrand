@@ -2,6 +2,7 @@ import { Button } from "@/components/ui/button"
 import { Card } from "@/components/ui/card"
 import { ArrowRight, LineChart, Search, Layout, PenTool, Globe, BarChart3, Mail } from "lucide-react"
 import Link from "next/link"
+import { Navigation } from "@/components/navigation"
 
 const serviceCategories = [
   {
@@ -184,8 +185,10 @@ const serviceCategories = [
 
 export default function ServicesPage() {
   return (
-    <main className="min-h-screen pt-20">
-      <section className="py-16 px-4 sm:px-6 lg:px-8">
+    <>
+      <Navigation />
+      <main className="min-h-screen pt-20">
+        <section className="py-16 px-4 sm:px-6 lg:px-8">
         <div className="container mx-auto max-w-6xl">
           <div className="space-y-12">
             <div className="text-center space-y-4 max-w-3xl mx-auto">
@@ -253,5 +256,6 @@ export default function ServicesPage() {
         </div>
       </section>
     </main>
+    </>
   )
 }

@@ -172,6 +172,7 @@ export default function MarketingCalculator() {
 
   return (
     <main className="min-h-screen pt-20">
+      <Navigation />
       <section className="py-16 px-4 sm:px-6 lg:px-8">
         <div className="container mx-auto max-w-6xl">
           <div className="space-y-12">

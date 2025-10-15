@@ -7,6 +7,7 @@ import { Skeleton } from "@/components/ui/skeleton"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { BarChart, LineChart, Share2, Download, ArrowLeft } from "lucide-react"
 import Link from "next/link"
+import { Navigation } from "@/components/navigation"
 
 export default function SharedCalculatorResults({ params }: { params: { id: string } }) {
   const [results, setResults] = useState<any>(null)
@@ -58,8 +59,10 @@ export default function SharedCalculatorResults({ params }: { params: { id: stri
 
   if (loading) {
     return (
-      <main className="min-h-screen pt-20">
-        <section className="py-16 px-4 sm:px-6 lg:px-8">
+      <>
+        <Navigation />
+        <main className="min-h-screen pt-20">
+          <section className="py-16 px-4 sm:px-6 lg:px-8">
           <div className="container mx-auto max-w-6xl">
             <div className="space-y-8">
               <Skeleton className="h-12 w-2/3 mx-auto" />
@@ -87,32 +90,38 @@ export default function SharedCalculatorResults({ params }: { params: { id: stri
           </div>
         </section>
       </main>
+      </>
     )
   }
 
   if (error) {
     return (
-      <main className="min-h-screen pt-20">
-        <section className="py-16 px-4 sm:px-6 lg:px-8">
-          <div className="container mx-auto max-w-6xl">
-            <Card className="p-8 text-center">
-              <h2 className="text-2xl font-bold text-foreground mb-4">Error Loading Results</h2>
-              <p className="text-muted-foreground mb-6">{error}</p>
-              <Button asChild>
-                <Link href="/tools/marketing-calculator">
-                  <ArrowLeft className="mr-2 h-4 w-4" /> Back to Calculator
-                </Link>
-              </Button>
-            </Card>
-          </div>
-        </section>
-      </main>
+      <>
+        <Navigation />
+        <main className="min-h-screen pt-20">
+          <section className="py-16 px-4 sm:px-6 lg:px-8">
+            <div className="container mx-auto max-w-6xl">
+              <Card className="p-8 text-center">
+                <h2 className="text-2xl font-bold text-foreground mb-4">Error Loading Results</h2>
+                <p className="text-muted-foreground mb-6">{error}</p>
+                <Button asChild>
+                  <Link href="/tools/marketing-calculator">
+                    <ArrowLeft className="mr-2 h-4 w-4" /> Back to Calculator
+                  </Link>
+                </Button>
+              </Card>
+            </div>
+          </section>
+        </main>
+      </>
     )
   }
 
   return (
-    <main className="min-h-screen pt-20">
-      <section className="py-16 px-4 sm:px-6 lg:px-8">
+    <>
+      <Navigation />
+      <main className="min-h-screen pt-20">
+        <section className="py-16 px-4 sm:px-6 lg:px-8">
         <div className="container mx-auto max-w-6xl">
           <div className="space-y-12">
             <div className="text-center space-y-4">
@@ -284,5 +293,6 @@ export default function SharedCalculatorResults({ params }: { params: { id: stri
         </div>
       </section>
     </main>
+    </>
   )
 }

@@ -2,11 +2,14 @@ import { Button } from "@/components/ui/button"
 import { Card } from "@/components/ui/card"
 import { ArrowRight, Check, BarChart3, Search, Settings, LineChart } from "lucide-react"
 import Link from "next/link"
+import { Navigation } from "@/components/navigation"
 
 export default function SEOService() {
   return (
-    <main className="min-h-screen pt-20">
-      <section className="py-16 px-4 sm:px-6 lg:px-8">
+    <>
+      <Navigation />
+      <main className="min-h-screen pt-20">
+        <section className="py-16 px-4 sm:px-6 lg:px-8">
         <div className="container mx-auto max-w-6xl">
           <div className="grid lg:grid-cols-12 gap-12">
             {/* Main Content */}
@@ -359,5 +362,6 @@ export default function SEOService() {
         </div>
       </section>
     </main>
+    </>
   )
 }

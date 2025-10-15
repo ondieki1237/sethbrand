@@ -1,7 +1,11 @@
+import { Navigation } from "@/components/navigation"
+
 export default function PrivacyPolicy() {
   return (
-    <main className="min-h-screen pt-20">
-      <section className="py-16 px-4 sm:px-6 lg:px-8">
+    <>
+      <Navigation />
+      <main className="min-h-screen pt-20">
+        <section className="py-16 px-4 sm:px-6 lg:px-8">
         <div className="container mx-auto max-w-4xl">
           <div className="space-y-12">
             <div className="text-center space-y-4">
@@ -124,5 +128,6 @@ export default function PrivacyPolicy() {
         </div>
       </section>
     </main>
+    </>
   )
 }

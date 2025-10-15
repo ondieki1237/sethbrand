@@ -1,6 +1,10 @@
+"use client"
+
+import { useState } from "react"
 import { Button } from "@/components/ui/button"
 import { Card } from "@/components/ui/card"
 import { Check, X } from "lucide-react"
+import { Navigation } from "@/components/navigation"
 
 const pricingPlans = [
   {
@@ -72,11 +76,15 @@ const pricingPlans = [
 ]
 
 export default function PricingPage() {
+  const [billingCycle, setBillingCycle] = useState("monthly")
+
   return (
-    <main className="min-h-screen pt-20">
-      <section className="py-16 px-4 sm:px-6 lg:px-8">
-        <div className="container mx-auto max-w-6xl">
-          <div className="space-y-12">
+    <>
+      <Navigation />
+      <main className="min-h-screen pt-20">
+        <section className="py-16 px-4 sm:px-6 lg:px-8">
+          <div className="container mx-auto max-w-6xl">
+            <div className="space-y-12">
             <div className="text-center space-y-4">
               <h1 className="text-4xl sm:text-5xl font-bold text-foreground">Transparent Pricing Plans</h1>
               <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
@@ -171,5 +179,6 @@ export default function PricingPage() {
         </div>
       </section>
     </main>
+    </>
   )
 }
