@@ -1,6 +1,7 @@
 import { Card } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { ExternalLink } from "lucide-react"
+import Image from "next/image"
 
 export function Projects() {
   const projects = [
@@ -8,7 +9,7 @@ export function Projects() {
       title: "Haven Furnitures",
       description:
         "Modern e-commerce website with admin dashboard for furniture business. Features product management, image uploads, and streamlined customer experience.",
-      image: "/modern-furniture-website-dashboard.jpg",
+      image: "/modern-furniture-website-dashboard.webp",
       tags: ["Next.js", "Dashboard", "E-commerce"],
       link: "https://haven-furnitures.vercel.app/",
     },
@@ -16,7 +17,7 @@ export function Projects() {
       title: "Amani Centre CBO",
       description:
         "Community-based organization website helping communities during flooding and adverse climatic conditions. Built to facilitate aid and community support.",
-      image: "/community-organization-website.jpg",
+      image: "/community-organization-website.webp",
       tags: ["Next.js", "NGO", "Community"],
       link: "https://www.amanicentercbo.org/",
     },
@@ -24,7 +25,7 @@ export function Projects() {
       title: "WOMD Digitech",
       description:
         "Kenyan domain registration platform built during KENIC hackathon. Includes sandbox testing environment and Android APK for mobile access.",
-      image: "/domain-registration-website.jpg",
+      image: "/domain-registration-website.webp",
       tags: ["Hackathon", "Domain", "Android"],
       link: "http://womd.co.ke/",
     },
@@ -32,7 +33,7 @@ export function Projects() {
       title: "Cadiet Gym Coach",
       description:
         "Professional website showcasing gym coaching expertise, nutrition guidance, and bodybuilding programs. Clean design focused on fitness and wellness.",
-      image: "/fitness-gym-coach-website.jpg",
+      image: "/fitness-gym-coach-website.webp",
       tags: ["Next.js", "Fitness", "Portfolio"],
       link: "https://cadiet.vercel.app/",
     },
@@ -58,11 +59,15 @@ export function Projects() {
                   index % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"
                 } flex flex-col md:flex`}
               >
-                <div className="md:w-1/2 relative overflow-hidden bg-secondary/50">
-                  <img
+                <div className="md:w-1/2 relative overflow-hidden bg-secondary/50 h-64 md:h-auto">
+                  <Image
                     src={project.image || "/placeholder.svg"}
                     alt={project.title}
-                    className="w-full h-64 md:h-full object-cover hover:scale-105 transition-transform duration-300"
+                    fill
+                    sizes="(max-width: 768px) 100vw, 50vw"
+                    className="object-cover hover:scale-105 transition-transform duration-300"
+                    loading={index === 0 ? "eager" : "lazy"}
+                    priority={index === 0}
                   />
                 </div>
                 <div className="md:w-1/2 p-8 flex flex-col justify-center">

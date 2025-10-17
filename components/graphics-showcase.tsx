@@ -7,32 +7,32 @@ const graphicsItems = [
   {
     type: "Branding",
     title: "Modern Brand Identity",
-    image: "/modern-brand-identity-design-with-geometric-shapes.jpg",
+    image: "/modern-brand-identity-design-with-geometric-shapes.webp",
   },
   {
     type: "Logo",
     title: "Tech Startup Logo",
-    image: "/minimalist-tech-startup-logo-design.jpg",
+    image: "/minimalist-tech-startup-logo-design.webp",
   },
   {
     type: "Graphics",
     title: "Social Media Graphics",
-    image: "/vibrant-social-media-post-design.jpg",
+    image: "/vibrant-social-media-post-design.webp",
   },
   {
     type: "Branding",
     title: "Corporate Branding",
-    image: "/professional-corporate-branding-materials.jpg",
+    image: "/professional-corporate-branding-materials.webp",
   },
   {
     type: "Logo",
     title: "Restaurant Logo",
-    image: "/elegant-restaurant-logo-design.jpg",
+    image: "/elegant-restaurant-logo-design.webp",
   },
   {
     type: "Graphics",
     title: "Marketing Materials",
-    image: "/creative-marketing-poster-design.jpg",
+    image: "/creative-marketing-poster-design.webp",
   },
 ]
 
@@ -103,6 +103,7 @@ export function GraphicsShowcase() {
                       fill
                       className="object-cover"
                       sizes="(max-width: 768px) 100vw, 400px"
+                      loading="lazy"
                     />
                   </div>
                   <div className="p-6">

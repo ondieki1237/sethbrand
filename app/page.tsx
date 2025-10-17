@@ -1,15 +1,31 @@
+import dynamic from "next/dynamic"
 import { Hero } from "@/components/hero"
 import { About } from "@/components/about"
 import { Services } from "@/components/services"
-import { ProcessFlow } from "@/components/process-flow"
-import { GraphicsShowcase } from "@/components/graphics-showcase"
-import { Projects } from "@/components/projects"
-import { Experience } from "@/components/experience"
-import { Contact } from "@/components/contact"
 import { Navigation } from "@/components/navigation"
-import { Blog } from "@/components/blog"
-import { CaseStudies } from "@/components/case-studies"
-import { Testimonials } from "@/components/testimonials"
+
+// Dynamically import below-the-fold components to reduce initial JS bundle
+const ProcessFlow = dynamic(() => import("@/components/process-flow").then(mod => ({ default: mod.ProcessFlow })), {
+  loading: () => <div className="h-96" />
+})
+const GraphicsShowcase = dynamic(() => import("@/components/graphics-showcase").then(mod => ({ default: mod.GraphicsShowcase })), {
+  loading: () => <div className="h-96" />
+})
+const Projects = dynamic(() => import("@/components/projects").then(mod => ({ default: mod.Projects })), {
+  loading: () => <div className="h-96" />
+})
+const Experience = dynamic(() => import("@/components/experience").then(mod => ({ default: mod.Experience })), {
+  loading: () => <div className="h-96" />
+})
+const Contact = dynamic(() => import("@/components/contact").then(mod => ({ default: mod.Contact })), {
+  loading: () => <div className="h-96" />
+})
+const Blog = dynamic(() => import("@/components/blog").then(mod => ({ default: mod.Blog })), {
+  loading: () => <div className="h-96" />
+})
+const Testimonials = dynamic(() => import("@/components/testimonials").then(mod => ({ default: mod.Testimonials })), {
+  loading: () => <div className="h-96" />
+})
 
 export default function Home() {
   return (
@@ -19,7 +35,6 @@ export default function Home() {
       <About />
       <Services />
       <ProcessFlow />
-      <CaseStudies />
       <GraphicsShowcase />
       <Projects />
       <Testimonials />

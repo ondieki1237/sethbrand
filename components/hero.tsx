@@ -7,59 +7,31 @@ import { motion } from "framer-motion"
 export function Hero() {
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden px-4 sm:px-6 lg:px-8 pt-20 bg-gradient-to-b from-[#e6f3f2] via-[#f8faff] to-[#f0eefc] dark:from-gray-950 dark:to-black">
-      {/* Animated background pattern */}
-      <motion.div
-        className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(0,150,136,0.15),transparent_60%),radial-gradient(circle_at_70%_80%,rgba(103,58,183,0.15),transparent_60%)]"
-        animate={{ backgroundPosition: ["0% 0%", "100% 100%", "0% 0%"] }}
-        transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-      />
+      {/* Static background pattern - no animation for LCP */}
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(0,150,136,0.15),transparent_60%),radial-gradient(circle_at_70%_80%,rgba(103,58,183,0.15),transparent_60%)]" />
 
-      {/* Subtle branding watermark */}
-      <motion.h1
-        className="absolute text-[10rem] sm:text-[16rem] font-black text-primary/5 select-none z-0"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 0.15 }}
-        transition={{ duration: 1.5 }}
-      >
+      {/* Subtle branding watermark - no animation for LCP */}
+      <h1 className="absolute text-[10rem] sm:text-[16rem] font-black text-primary/5 select-none z-0 opacity-15">
         SM
-      </motion.h1>
+      </h1>
 
       <div className="relative z-10 container mx-auto max-w-6xl text-center space-y-8">
-        <motion.p
-          initial={{ opacity: 0, y: 10 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          className="text-primary font-mono text-sm sm:text-base"
-        >
+        {/* Remove animations from above-the-fold content for faster LCP */}
+        <p className="text-primary font-mono text-sm sm:text-base">
           👋 Hi, my name is
-        </motion.p>
+        </p>
 
-        <motion.h1
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          className="text-5xl sm:text-6xl lg:text-7xl font-extrabold text-foreground tracking-tight"
-        >
-          <span className="bg-gradient-to-r from-[#009688] via-[#673AB7] to-[#2196F3] bg-clip-text text-transparent animate-text-gradient">
+        <h1 className="text-5xl sm:text-6xl lg:text-7xl font-extrabold text-foreground tracking-tight">
+          <span className="bg-gradient-to-r from-[#009688] via-[#673AB7] to-[#2196F3] bg-clip-text text-transparent">
             Seth Makori
           </span>
-        </motion.h1>
+        </h1>
 
-        <motion.h2
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.3 }}
-          className="text-3xl sm:text-5xl font-semibold text-muted-foreground"
-        >
+        <h2 className="text-3xl sm:text-5xl font-semibold text-muted-foreground">
           I build <span className="text-[#009688]">digital experiences.</span>
-        </motion.h2>
+        </h2>
 
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.6 }}
-          className="text-lg sm:text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed"
-        >
+        <p className="text-lg sm:text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
           A multi-disciplinary digital professional specializing in{" "}
           <span className="text-[#009688]">web development</span>,{" "}
           <span className="text-[#009688]">SEO optimization</span>,{" "}
@@ -67,7 +39,7 @@ export function Hero() {
           <span className="text-[#009688]">digital marketing</span>. Currently
           pursuing a Masters in AI while crafting modern solutions for
           businesses and organizations.
-        </motion.p>
+        </p>
 
         <motion.div
           initial={{ opacity: 0, y: 10 }}
