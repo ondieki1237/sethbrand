@@ -2,8 +2,9 @@
 
 import { Button } from "@/components/ui/button"
 import { Card } from "@/components/ui/card"
-import { Mail, Phone, MapPin } from "lucide-react"
+import { Mail, Phone, MapPin, Twitter, Instagram, Facebook, Linkedin, Github } from "lucide-react"
 import { ContactForm } from "./contact-form"
+import { siteConfig } from "@/lib/site-config"
 
 export function Contact() {
   return (
@@ -66,10 +67,72 @@ export function Contact() {
         </div>
       </div>
 
-      <footer className="mt-20 pt-8 border-t border-border text-center">
-        <p className="text-sm text-muted-foreground">
-          © {new Date().getFullYear()} Seth Makori. Built with Next.js & passion.
-        </p>
+      <footer className="mt-20 pt-8 border-t border-border">
+        <div className="space-y-6">
+          {/* Social Media Links */}
+          <div className="flex justify-center items-center gap-4">
+            {siteConfig.social.twitter.url && (
+              <a
+                href={siteConfig.social.twitter.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group relative p-3 rounded-full bg-card border border-border hover:border-primary transition-all duration-300 hover:shadow-lg hover:shadow-primary/20"
+                aria-label="Follow on X (Twitter)"
+              >
+                <Twitter className="h-5 w-5 text-muted-foreground group-hover:text-primary transition-colors" />
+              </a>
+            )}
+            {siteConfig.social.instagram.url && (
+              <a
+                href={siteConfig.social.instagram.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group relative p-3 rounded-full bg-card border border-border hover:border-primary transition-all duration-300 hover:shadow-lg hover:shadow-primary/20"
+                aria-label="Follow on Instagram"
+              >
+                <Instagram className="h-5 w-5 text-muted-foreground group-hover:text-primary transition-colors" />
+              </a>
+            )}
+            {siteConfig.social.facebook.url && (
+              <a
+                href={siteConfig.social.facebook.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group relative p-3 rounded-full bg-card border border-border hover:border-primary transition-all duration-300 hover:shadow-lg hover:shadow-primary/20"
+                aria-label="Follow on Facebook"
+              >
+                <Facebook className="h-5 w-5 text-muted-foreground group-hover:text-primary transition-colors" />
+              </a>
+            )}
+            {siteConfig.social.linkedin.url && (
+              <a
+                href={siteConfig.social.linkedin.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group relative p-3 rounded-full bg-card border border-border hover:border-primary transition-all duration-300 hover:shadow-lg hover:shadow-primary/20"
+                aria-label="Connect on LinkedIn"
+              >
+                <Linkedin className="h-5 w-5 text-muted-foreground group-hover:text-primary transition-colors" />
+              </a>
+            )}
+            {siteConfig.social.github.url && (
+              <a
+                href={siteConfig.social.github.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group relative p-3 rounded-full bg-card border border-border hover:border-primary transition-all duration-300 hover:shadow-lg hover:shadow-primary/20"
+                aria-label="View GitHub profile"
+              >
+                <Github className="h-5 w-5 text-muted-foreground group-hover:text-primary transition-colors" />
+              </a>
+            )}
+          </div>
+
+          {/* Copyright */}
+          <p className="text-sm text-muted-foreground text-center">
+            © {new Date().getFullYear()} Seth Makori. Built with Next.js & passion.
+          </p>
+        </div>
       </footer>
     </section>
   )
