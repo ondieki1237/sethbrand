@@ -8,54 +8,38 @@ import { ChevronLeft, ChevronRight, Quote } from "lucide-react"
 const testimonials = [
   {
     id: 1,
-    name: "Sarah Johnson",
-    position: "Marketing Director",
-    company: "TechNova Solutions",
-    quote: "Working with Seth Digital transformed our online presence. The SEO strategy they implemented resulted in a 215% increase in organic traffic within just 4 months, and our lead generation has never been stronger.",
-    imageUrl: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+    name: "James Ondiek",
+    position: "Founder",
+    company: "Boom Audio Visuals",
+    quote: "Seth delivered an exceptional website for our event production company. The design perfectly captures our premium brand, and the site has significantly improved our online presence. Client inquiries have increased by over 60% since launch.",
+    imageUrl: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
   },
   {
     id: 2,
-    name: "Michael Chang",
-    position: "CEO",
-    company: "Greenvest Financial",
-    quote: "Seth's team completely redesigned our website with a focus on user experience and conversion optimization. The results were immediate - our conversion rate jumped from 1.8% to 4.6%, and client feedback has been overwhelmingly positive.",
+    name: "John Green",
+    position: "Director",
+    company: "Amani Centre CBO",
+    quote: "Working with Seth on our community organization website was a game-changer. He understood our mission to help communities during flooding and created a platform that effectively communicates our work. The site has helped us reach more people in need.",
     imageUrl: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
   },
   {
     id: 3,
-    name: "Priya Patel",
-    position: "Small Business Owner",
-    company: "Bloom Boutique",
-    quote: "As a small business owner, I didn't have the budget for expensive marketing campaigns. Seth Digital created a targeted social media strategy that helped my boutique reach the right customers at a fraction of what I thought it would cost.",
-    imageUrl: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
-  },
-  {
-    id: 4,
-    name: "James Wilson",
-    position: "Operations Manager",
-    company: "Urban Construction Group",
-    quote: "Seth took the time to understand our industry and target audience. The local SEO campaign they created for our construction business has put us at the top of search results in our service area, bringing in qualified leads every day.",
+    name: "Dickson Cadiet",
+    position: "Fitness Coach",
+    company: "Cadiet Gym Coach",
+    quote: "Seth built a professional website that showcases my gym coaching expertise perfectly. The clean design and easy navigation have helped me attract new clients consistently. My online bookings have tripled since the website went live!",
     imageUrl: "https://images.unsplash.com/photo-1519345182560-3f2917c472ef?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
-  },
-  {
-    id: 5,
-    name: "Elena Rodriguez",
-    position: "E-commerce Director",
-    company: "Fashion Forward",
-    quote: "The digital marketing campaign Seth designed for our seasonal collection launch exceeded all expectations. We saw a 347% ROI and it was our most successful product launch to date. Their data-driven approach makes all the difference.",
-    imageUrl: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
   }
 ]
 
 export function Testimonials() {
   const [currentSlide, setCurrentSlide] = useState(0)
   const totalSlides = Math.ceil(testimonials.length / 2)
-  
+
   const nextSlide = () => {
     setCurrentSlide((prev) => (prev + 1) % totalSlides)
   }
-  
+
   const prevSlide = () => {
     setCurrentSlide((prev) => (prev - 1 + totalSlides) % totalSlides)
   }
@@ -74,7 +58,7 @@ export function Testimonials() {
 
           <div className="relative">
             <div className="overflow-hidden">
-              <div 
+              <div
                 className="flex transition-transform duration-500 ease-in-out"
                 style={{ transform: `translateX(-${currentSlide * 100}%)` }}
               >
@@ -88,12 +72,12 @@ export function Testimonials() {
                             <blockquote className="text-lg text-muted-foreground italic mb-6 relative z-10">
                               "{testimonial.quote}"
                             </blockquote>
-                            
+
                             <div className="mt-auto flex items-center">
                               <div className="h-12 w-12 rounded-full overflow-hidden mr-4">
-                                <img 
-                                  src={testimonial.imageUrl} 
-                                  alt={testimonial.name} 
+                                <img
+                                  src={testimonial.imageUrl}
+                                  alt={testimonial.name}
                                   className="h-full w-full object-cover"
                                 />
                               </div>
@@ -114,35 +98,34 @@ export function Testimonials() {
                 ))}
               </div>
             </div>
-            
+
             {/* Navigation controls */}
             {totalSlides > 1 && (
               <div className="flex justify-center mt-8 gap-4">
-                <Button 
-                  variant="outline" 
-                  size="icon" 
+                <Button
+                  variant="outline"
+                  size="icon"
                   onClick={prevSlide}
                 >
                   <ChevronLeft className="h-6 w-6" />
                   <span className="sr-only">Previous testimonials</span>
                 </Button>
-                
+
                 <div className="flex items-center gap-2">
                   {Array(totalSlides).fill(0).map((_, i) => (
                     <button
                       key={i}
                       onClick={() => setCurrentSlide(i)}
-                      className={`h-2.5 rounded-full transition-all ${
-                        i === currentSlide ? "w-6 bg-primary" : "w-2.5 bg-primary/30"
-                      }`}
+                      className={`h-2.5 rounded-full transition-all ${i === currentSlide ? "w-6 bg-primary" : "w-2.5 bg-primary/30"
+                        }`}
                       aria-label={`Go to slide ${i + 1}`}
                     />
                   ))}
                 </div>
-                
-                <Button 
-                  variant="outline" 
-                  size="icon" 
+
+                <Button
+                  variant="outline"
+                  size="icon"
                   onClick={nextSlide}
                 >
                   <ChevronRight className="h-6 w-6" />

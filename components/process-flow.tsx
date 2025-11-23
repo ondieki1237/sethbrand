@@ -80,14 +80,16 @@ export function ProcessFlow() {
                 <div
                   className={`
                     neumorphic-card p-6 sm:p-8 rounded-2xl transition-all duration-700 ease-out h-full
-                    ${isActive ? "scale-105 neumorphic-card-active" : "scale-100"}
+                    dark:bg-card dark:border dark:border-border dark:shadow-none
+                    ${isActive ? "scale-105 neumorphic-card-active dark:border-primary/50 dark:shadow-[0_0_0_2px_oklch(0.7_0.15_195/0.3)]" : "scale-100"}
                   `}
                 >
                   <div
                     className={`
                       w-14 h-14 sm:w-16 sm:h-16 rounded-xl mb-4 sm:mb-6 flex items-center justify-center
                       transition-all duration-700 ease-out
-                      ${isActive ? "bg-primary/20 neumorphic-icon-active" : "bg-primary/10"}
+                      dark:bg-primary/10 dark:shadow-none
+                      ${isActive ? "bg-primary/20 neumorphic-icon-active dark:bg-primary/20 dark:shadow-none" : "bg-primary/10"}
                     `}
                   >
                     <Icon

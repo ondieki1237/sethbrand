@@ -20,9 +20,6 @@ const Experience = dynamic(() => import("@/components/experience").then(mod => (
 const Contact = dynamic(() => import("@/components/contact").then(mod => ({ default: mod.Contact })), {
   loading: () => <div className="h-96" />
 })
-const Blog = dynamic(() => import("@/components/blog").then(mod => ({ default: mod.Blog })), {
-  loading: () => <div className="h-96" />
-})
 const Testimonials = dynamic(() => import("@/components/testimonials").then(mod => ({ default: mod.Testimonials })), {
   loading: () => <div className="h-96" />
 })
@@ -39,7 +36,6 @@ export default function Home() {
       <Projects />
       <Testimonials />
       <Experience />
-      <Blog />
       <Contact />
     </main>
   )

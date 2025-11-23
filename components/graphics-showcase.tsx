@@ -6,33 +6,33 @@ import Image from "next/image"
 const graphicsItems = [
   {
     type: "Branding",
-    title: "Modern Brand Identity",
-    image: "/modern-brand-identity-design-with-geometric-shapes.webp",
-  },
-  {
-    type: "Logo",
-    title: "Tech Startup Logo",
-    image: "/minimalist-tech-startup-logo-design.webp",
+    title: "Brand Identity Design",
+    image: "/graphics/16.webp",
   },
   {
     type: "Graphics",
-    title: "Social Media Graphics",
-    image: "/vibrant-social-media-post-design.webp",
+    title: "Creative Design Work",
+    image: "/graphics/17.webp",
   },
   {
     type: "Branding",
-    title: "Corporate Branding",
-    image: "/professional-corporate-branding-materials.webp",
-  },
-  {
-    type: "Logo",
-    title: "Restaurant Logo",
-    image: "/elegant-restaurant-logo-design.webp",
+    title: "Visual Identity",
+    image: "/graphics/18.webp",
   },
   {
     type: "Graphics",
-    title: "Marketing Materials",
-    image: "/creative-marketing-poster-design.webp",
+    title: "Marketing Graphics",
+    image: "/graphics/19.webp",
+  },
+  {
+    type: "Logo",
+    title: "Logo Design",
+    image: "/graphics/20.webp",
+  },
+  {
+    type: "Graphics",
+    title: "Design Portfolio",
+    image: "/graphics/21.webp",
   },
 ]
 

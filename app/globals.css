@@ -118,6 +118,7 @@
   * {
     @apply border-border outline-ring/50;
   }
+
   body {
     @apply bg-background text-foreground;
   }
@@ -132,8 +133,9 @@
   }
 
   .dark .neumorphic-card {
-    background: oklch(0.17 0.02 240);
-    box-shadow: 8px 8px 16px oklch(0.12 0.02 240), -8px -8px 16px oklch(0.22 0.02 240);
+    background: oklch(0.15 0.02 240);
+    box-shadow: none;
+    border: 1px solid oklch(0.25 0.02 240);
   }
 
   :root .neumorphic-card {
@@ -142,18 +144,16 @@
   }
 
   .neumorphic-card-active {
-    box-shadow: 12px 12px 24px oklch(0.12 0.02 240), -12px -12px 24px oklch(0.22 0.02 240), inset 2px 2px 4px
-      oklch(0.7 0.15 195 / 0.1);
+    box-shadow: 12px 12px 24px oklch(0.12 0.02 240), -12px -12px 24px oklch(0.22 0.02 240), inset 2px 2px 4px oklch(0.7 0.15 195 / 0.1);
   }
 
   .dark .neumorphic-card-active {
-    box-shadow: 12px 12px 24px oklch(0.12 0.02 240), -12px -12px 24px oklch(0.22 0.02 240), inset 2px 2px 4px
-      oklch(0.7 0.15 195 / 0.1);
+    box-shadow: 0 0 0 2px oklch(0.7 0.15 195 / 0.3);
+    border: 1px solid oklch(0.7 0.15 195 / 0.5);
   }
 
   :root .neumorphic-card-active {
-    box-shadow: 12px 12px 24px oklch(0.88 0.01 240), -12px -12px 24px oklch(1 0 0), inset 2px 2px 4px
-      oklch(0.5 0.18 195 / 0.15);
+    box-shadow: 12px 12px 24px oklch(0.88 0.01 240), -12px -12px 24px oklch(1 0 0), inset 2px 2px 4px oklch(0.5 0.18 195 / 0.15);
   }
 
   .neumorphic-icon-active {
@@ -173,6 +173,7 @@
       opacity: 0;
       transform: translateY(30px);
     }
+
     to {
       opacity: 1;
       transform: translateY(0);
@@ -183,6 +184,7 @@
     from {
       opacity: 0;
     }
+
     to {
       opacity: 1;
     }
