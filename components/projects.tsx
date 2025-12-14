@@ -11,7 +11,7 @@ export function Projects() {
         "Premium event production company website showcasing audiovisual services across Africa. Features elegant design, service galleries, and event portfolio with 500+ events produced and 15+ years of experience.",
       image: "/boom-audio-visuals-website.webp",
       tags: ["Next.js", "Events", "Production"],
-      link: "https://boom-delta-steel.vercel.app/",
+      link: "https://boomevents.co.ke/",
     },
     {
       title: "Haven Furnitures",
@@ -19,7 +19,7 @@ export function Projects() {
         "Modern e-commerce website with admin dashboard for furniture business. Features product management, image uploads, and streamlined customer experience.",
       image: "/modern-furniture-website.webp",
       tags: ["Next.js", "Dashboard", "E-commerce"],
-      link: "https://haven-furnitures.vercel.app/",
+      link: "https://www.havenlivingfurniture.co.ke/",
     },
     {
       title: "Amani Centre CBO",

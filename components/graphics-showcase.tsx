@@ -15,13 +15,13 @@ const graphicsItems = [
     image: "/graphics/17.webp",
   },
   {
-    type: "Branding",
-    title: "Visual Identity",
+    type: "Promotional",
+    title: "Offer Campaigns",
     image: "/graphics/18.webp",
   },
   {
-    type: "Graphics",
-    title: "Marketing Graphics",
+    type: "Events",
+    title: "Events Invitations",
     image: "/graphics/19.webp",
   },
   {
