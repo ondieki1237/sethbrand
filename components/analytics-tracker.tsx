@@ -22,7 +22,8 @@ export function AnalyticsTracker() {
       ts: Date.now(),
     }
 
-    const url = "/api/analytics/track"
+    const apiUrl = process.env.NEXT_PUBLIC_API_URL || ""
+    const url = `${apiUrl}/api/analytics/track`
     const body = JSON.stringify(payload)
 
     // Prefer sendBeacon to keep navigation snappy

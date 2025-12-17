@@ -11,8 +11,8 @@ const pricingPlans = [
     name: "Starter",
     description: "Perfect for small businesses just getting started with digital marketing.",
     price: {
-      monthly: 999,
-      yearly: 899
+      monthly: 25000,
+      yearly: 22500
     },
     features: [
       { name: "Website audit and basic optimization", included: true },
@@ -33,8 +33,8 @@ const pricingPlans = [
     name: "Professional",
     description: "Our most popular plan for growing businesses seeking comprehensive digital marketing.",
     price: {
-      monthly: 2499,
-      yearly: 2199
+      monthly: 65000,
+      yearly: 58500
     },
     features: [
       { name: "Website audit and advanced optimization", included: true },
@@ -55,8 +55,8 @@ const pricingPlans = [
     name: "Enterprise",
     description: "Custom solutions for larger businesses with advanced marketing needs.",
     price: {
-      monthly: 4999,
-      yearly: 4499
+      monthly: 130000,
+      yearly: 117000
     },
     features: [
       { name: "Full website audit and optimization", included: true },
@@ -131,7 +131,9 @@ export default function PricingPage() {
                     
                     <div className="pt-4">
                       <div className="flex items-baseline">
-                        <span className="text-4xl font-bold text-foreground">${plan.price.monthly}</span>
+                        <span className="text-4xl font-bold text-foreground">
+                          KSh {plan.price[billingCycle as keyof typeof plan.price].toLocaleString()}
+                        </span>
                         <span className="ml-1 text-muted-foreground">/month</span>
                       </div>
                     </div>

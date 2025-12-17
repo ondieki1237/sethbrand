@@ -31,7 +31,8 @@ export default function SeoAnalyzerLite() {
     setError(null)
     setResult(null)
     try {
-      const res = await fetch(`/api/tools/seo-analyzer?url=${encodeURIComponent(values.url)}`)
+      const apiUrl = process.env.NEXT_PUBLIC_API_URL || ""
+      const res = await fetch(`${apiUrl}/api/tools/seo-analyzer?url=${encodeURIComponent(values.url)}`)
       if (!res.ok) throw new Error('Unable to analyze the URL')
       const data = await res.json()
       setResult(data)

@@ -27,8 +27,8 @@ export const siteConfig = {
             handle: "seth.mose.37",
         },
         linkedin: {
-            url: "",
-            handle: "",
+            url: "https://www.linkedin.com/in/seth-makori",
+            handle: "seth-makori",
         },
         github: {
             url: "https://github.com/ondieki1237",
