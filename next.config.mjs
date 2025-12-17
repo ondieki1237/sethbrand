@@ -36,6 +36,7 @@ const nextConfig = {
           { key: 'Referrer-Policy', value: 'strict-origin-when-cross-origin' },
           { key: 'Permissions-Policy', value: 'geolocation=(), microphone=()' },
           { key: 'X-DNS-Prefetch-Control', value: 'on' },
+          { key: 'Link', value: '<https://codewithseth.co.ke>; rel="canonical"' },
         ],
       },
       {

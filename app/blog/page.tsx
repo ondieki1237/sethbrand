@@ -58,6 +58,7 @@ const blogPosts = [
 export const metadata = {
   title: "Blog | Seth Makori",
   description: "Insights and articles on web development, SEO, digital marketing, and graphic design by Seth Makori.",
+  alternates: { canonical: "/blog" },
 }
 
 export default function BlogPage() {

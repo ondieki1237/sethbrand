@@ -1,8 +1,15 @@
+import type { Metadata } from "next"
 import { Button } from "@/components/ui/button"
 import { Card } from "@/components/ui/card"
 import { ArrowRight, LineChart, Search, Layout, PenTool, Globe, BarChart3, Mail } from "lucide-react"
 import Link from "next/link"
 import { Navigation } from "@/components/navigation"
+
+export const metadata: Metadata = {
+  title: "Digital Marketing & SEO Services | CodeWithSeth",
+  description: "Web design, SEO, digital marketing, and content services tailored for Kenyan and global businesses.",
+  alternates: { canonical: "/services" },
+}
 
 const serviceCategories = [
   {
@@ -232,6 +239,22 @@ export default function ServicesPage() {
                               </div>
                             ))}
                           </div>
+                          {category.id === 'seo-optimization' && index === 1 && (
+                            <div className="pt-4 text-sm">
+                              <span className="text-muted-foreground">Popular in Nairobi: </span>
+                              <a href="/services/seo/local-seo-nairobi" className="text-primary underline">Local SEO Services</a>
+                            </div>
+                          )}
+                          {category.id === 'seo-optimization' && index === 0 && (
+                            <div className="pt-2 text-sm">
+                              <a href="/services/seo/technical-seo-audit-kenya" className="text-primary underline">See our Technical SEO Audit</a>
+                            </div>
+                          )}
+                          {category.id === 'digital-marketing' && index === 0 && (
+                            <div className="pt-2 text-sm">
+                              <a href="/services/seo/mpesa-integration-systems-kenya" className="text-primary underline">M‑Pesa Systems Integration</a>
+                            </div>
+                          )}
                         </Card>
                       ))}
                     </div>

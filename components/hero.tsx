@@ -2,6 +2,7 @@
 
 import { Button } from "@/components/ui/button"
 import { ArrowRight, Github, Linkedin, Mail } from "lucide-react"
+import { siteConfig } from "@/lib/site-config"
 import { motion } from "framer-motion"
 
 export function Hero() {
@@ -74,10 +75,10 @@ export function Hero() {
           className="flex justify-center gap-6 pt-8"
         >
           {[
-            { icon: Github, href: "https://github.com/ondieki1237" },
-            { icon: Linkedin, href: "https://linkedin.com" },
-            { icon: Mail, href: "mailto:bellarinseth@gmail.com" },
-          ].map(({ icon: Icon, href }, i) => (
+            { icon: Github, href: siteConfig.social.github.url },
+            { icon: Linkedin, href: siteConfig.social.linkedin.url },
+            { icon: Mail, href: `mailto:${siteConfig.contact.email}` },
+          ].filter(item => !!item.href).map(({ icon: Icon, href }, i) => (
             <motion.a
               key={i}
               href={href}

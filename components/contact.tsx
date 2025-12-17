@@ -2,7 +2,7 @@
 
 import { Button } from "@/components/ui/button"
 import { Card } from "@/components/ui/card"
-import { Mail, Phone, MapPin, Twitter, Instagram, Facebook, Linkedin, Github } from "lucide-react"
+import { Mail, Phone, MapPin, Twitter, Instagram, Facebook, Linkedin, Github, Youtube } from "lucide-react"
 import { ContactForm } from "./contact-form"
 import { siteConfig } from "@/lib/site-config"
 
@@ -124,6 +124,17 @@ export function Contact() {
                 aria-label="View GitHub profile"
               >
                 <Github className="h-5 w-5 text-muted-foreground group-hover:text-primary transition-colors" />
+              </a>
+            )}
+            {siteConfig.social.youtube?.url && (
+              <a
+                href={siteConfig.social.youtube.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group relative p-3 rounded-full bg-card border border-border hover:border-primary transition-all duration-300 hover:shadow-lg hover:shadow-primary/20"
+                aria-label="Watch on YouTube"
+              >
+                <Youtube className="h-5 w-5 text-muted-foreground group-hover:text-primary transition-colors" />
               </a>
             )}
           </div>

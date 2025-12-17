@@ -1,10 +1,17 @@
 "use client"
 
+import type { Metadata } from "next"
 import { useState } from "react"
 import { Button } from "@/components/ui/button"
 import { Card } from "@/components/ui/card"
 import { Check, X } from "lucide-react"
 import { Navigation } from "@/components/navigation"
+
+export const metadata: Metadata = {
+  title: "Pricing | Transparent Digital Marketing Plans",
+  description: "Starter, Professional, and Enterprise plans with clear inclusions for web, SEO, and marketing.",
+  alternates: { canonical: "/pricing" },
+}
 
 const pricingPlans = [
   {

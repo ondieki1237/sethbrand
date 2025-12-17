@@ -86,6 +86,7 @@ export function Navigation() {
     { label: "Blog", href: "/blog" },
     { label: "Tools", href: "/tools" },
     { label: "Design", href: "/design" },
+    { label: "Case Studies", href: "/case-studies/boom-audio-visuals" },
     { label: "Contact", href: isHomePage ? "#contact" : "/#contact" },
   ]
 

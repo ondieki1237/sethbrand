@@ -8,6 +8,7 @@ import { Navigation } from "@/components/navigation";
 export const metadata: Metadata = {
   title: "Marketing Tools | Seth Makori - Digital Marketing Professional",
   description: "Free marketing tools to help you analyze and optimize your digital marketing efforts. ROI calculators, analytics tools, and more.",
+  alternates: { canonical: "/tools" },
 };
 
 export default function ToolsPage() {
@@ -17,6 +18,13 @@ export default function ToolsPage() {
       name: "Marketing ROI Calculator",
       description: "Calculate the potential return on investment for your digital marketing campaigns across different channels.",
       path: "/tools/marketing-calculator",
+      available: true,
+    },
+    {
+      icon: <BarChart4 className="h-8 w-8 text-primary" />,
+      name: "SEO Analyzer (Lite)",
+      description: "Run a quick on-page SEO check for a URL: title, meta description, canonical, robots, and headings.",
+      path: "/tools/seo-analyzer",
       available: true,
     },
     {

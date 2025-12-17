@@ -83,6 +83,9 @@ export function Projects() {
               <p className="text-muted-foreground max-w-2xl">
                 A selection of websites and applications I've built for clients and organizations
               </p>
+              <p className="text-sm">
+                Read detailed case studies: <a className="text-primary underline" href="/case-studies/boom-audio-visuals">Boom Audio Visuals</a> and <a className="text-primary underline" href="/case-studies/amani-centre-cbo">Amani Centre CBO</a>.
+              </p>
             </div>
 
             <div className="grid gap-8">

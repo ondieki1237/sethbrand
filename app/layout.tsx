@@ -5,6 +5,8 @@ import { GeistMono } from "geist/font/mono"
 import { Analytics } from "@vercel/analytics/next"
 import { Suspense } from "react"
 import { ThemeProvider } from "@/components/theme-provider"
+import { AnalyticsTracker } from "@/components/analytics-tracker"
+import { siteConfig } from "@/lib/site-config"
 import "./globals.css"
 
 export const metadata: Metadata = {
@@ -38,6 +40,9 @@ export const metadata: Metadata = {
     description: "Web Developer, SEO Specialist, Graphic Designer & Digital Marketer.",
     images: ["/og-image.png"],
   },
+  alternates: {
+    canonical: "/",
+  },
   icons: {
     icon: [
       { url: "/logo.png", sizes: "any" },
@@ -54,6 +59,46 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode
 }>) {
+  const orgJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    name: siteConfig.name,
+    url: siteConfig.url,
+    logo: `${siteConfig.url}/logo.png`,
+    sameAs: [
+      siteConfig.social.linkedin.url,
+      siteConfig.social.twitter.url,
+      siteConfig.social.instagram.url,
+      siteConfig.social.facebook.url,
+      siteConfig.social.youtube?.url,
+      siteConfig.social.github.url,
+    ].filter(Boolean),
+    contactPoint: {
+      "@type": "ContactPoint",
+      email: siteConfig.contact.email,
+      telephone: siteConfig.contact.phone.primary,
+      areaServed: "KE",
+      availableLanguage: ["en"],
+      contactType: "customer support",
+    },
+  }
+
+  const personJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    name: siteConfig.name,
+    url: siteConfig.url,
+    jobTitle: "Full-Stack Developer & Digital Marketer",
+    sameAs: [
+      siteConfig.social.linkedin.url,
+      siteConfig.social.twitter.url,
+      siteConfig.social.instagram.url,
+      siteConfig.social.facebook.url,
+      siteConfig.social.youtube?.url,
+      siteConfig.social.github.url,
+    ].filter(Boolean),
+  }
+
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
@@ -61,7 +106,6 @@ export default function RootLayout({
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link rel="dns-prefetch" href="https://www.google-analytics.com" />
         <link rel="dns-prefetch" href="https://vercel.live" />
-        <link rel="canonical" href="https://codewithseth.co.ke/" />
         {/* Favicon and app icons */}
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
         <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
@@ -70,10 +114,21 @@ export default function RootLayout({
         <meta name="description" content="Web Developer, SEO Specialist, Graphic Designer & Digital Marketer. Building modern digital experiences." />
         {/* Optimize rendering */}
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(orgJsonLd) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd) }}
+        />
       </head>
       <body className={`font-sans ${GeistSans.variable} ${GeistMono.variable} antialiased`}>
         <ThemeProvider attribute="class" defaultTheme="light" enableSystem disableTransitionOnChange>
           <Suspense fallback={null}>{children}</Suspense>
+          <Suspense fallback={null}>
+            <AnalyticsTracker />
+          </Suspense>
         </ThemeProvider>
         <Suspense fallback={null}>
           <Analytics />

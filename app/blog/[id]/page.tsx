@@ -93,6 +93,7 @@ export async function generateMetadata({ params }: { params: { id: string } }) {
   return {
     title: post.title,
     description: post.excerpt,
+    alternates: { canonical: `/blog/${params.id}` },
   }
 }
 
@@ -103,10 +104,33 @@ export default function BlogPost({ params }: { params: { id: string } }) {
     notFound()
   }
   
+  const articleJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    headline: post.title,
+    datePublished: post.date,
+    author: {
+      "@type": "Person",
+      name: "Seth Makori",
+    },
+  }
+
+  const breadcrumbJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Home", item: "/" },
+      { "@type": "ListItem", position: 2, name: "Blog", item: "/blog" },
+      { "@type": "ListItem", position: 3, name: post.title, item: `/blog/${params.id}` },
+    ],
+  }
+
   return (
     <main className="min-h-screen pt-16">
       <Navigation />
       <article className="container mx-auto max-w-4xl px-4 py-12 sm:px-6 lg:px-8">
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleJsonLd) }} />
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }} />
         <div className="space-y-8">
           {/* Header */}
           <header className="space-y-4">

@@ -1,4 +1,11 @@
+import type { Metadata } from "next"
 import { Navigation } from "@/components/navigation"
+
+export const metadata: Metadata = {
+  title: "Terms of Service | CodeWithSeth",
+  description: "Terms governing the use of our website and services.",
+  alternates: { canonical: "/terms" },
+}
 
 export default function TermsOfService() {
   return (

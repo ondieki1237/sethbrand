@@ -1,4 +1,11 @@
+import type { Metadata } from "next"
 import { Navigation } from "@/components/navigation"
+
+export const metadata: Metadata = {
+  title: "Privacy Policy | CodeWithSeth",
+  description: "How we collect, use, and protect your data.",
+  alternates: { canonical: "/privacy" },
+}
 
 export default function PrivacyPolicy() {
   return (

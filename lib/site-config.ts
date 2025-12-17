@@ -23,16 +23,20 @@ export const siteConfig = {
             handle: "@bellarinseth2020",
         },
         facebook: {
-            url: "", // Add your Facebook URL here
-            handle: "",
+            url: "https://www.facebook.com/seth.mose.37/",
+            handle: "seth.mose.37",
         },
         linkedin: {
-            url: "", // Add your LinkedIn URL here
+            url: "",
             handle: "",
         },
         github: {
             url: "https://github.com/ondieki1237",
             handle: "@ondieki1237",
+        },
+        youtube: {
+            url: "https://www.youtube.com/@sethbellarin9902",
+            handle: "@sethbellarin9902",
         },
     },
 } as const

@@ -22,20 +22,15 @@ export interface ContactFormData {
 
 // Configure nodemailer with environment variables for secure access
 const createTransporter = () => {
-  // For production, use actual SMTP credentials from environment variables
-  // For development, we can use a test account
-  if (process.env.NODE_ENV === 'production') {
-    return nodemailer.createTransport({
-      host: process.env.SMTP_HOST,
-      port: parseInt(process.env.SMTP_PORT || '587'),
-      secure: process.env.SMTP_SECURE === 'true',
-      auth: {
-        user: process.env.SMTP_USER,
-        pass: process.env.SMTP_PASSWORD,
-      },
-    });
-  } else {
-    // For development environment, use Ethereal for testing
+  // Prefer explicit SMTP_* env vars; fallback to Gmail-style creds when provided
+  const smtpHost = process.env.SMTP_HOST || 'smtp.gmail.com'
+  const smtpPort = parseInt(process.env.SMTP_PORT || '465')
+  const smtpSecure = process.env.SMTP_SECURE ? process.env.SMTP_SECURE === 'true' : true
+  const user = process.env.SMTP_USER || process.env.EMAIL_USER
+  const pass = process.env.SMTP_PASSWORD || process.env.EMAIL_PASSWORD
+
+  if (!user || !pass) {
+    // Development fallback (ethereal) to avoid hard failures in dev
     return nodemailer.createTransport({
       host: 'smtp.ethereal.email',
       port: 587,
@@ -44,9 +39,16 @@ const createTransporter = () => {
         user: process.env.TEST_EMAIL_USER || 'ethereal-test@example.com',
         pass: process.env.TEST_EMAIL_PASS || 'test-password',
       },
-    });
+    })
   }
-};
+
+  return nodemailer.createTransport({
+    host: smtpHost,
+    port: smtpPort,
+    secure: smtpSecure,
+    auth: { user, pass },
+  })
+}
 
 // Send email function
 export const sendEmail = async (emailData: EmailData): Promise<{ success: boolean; info?: any; error?: Error }> => {
