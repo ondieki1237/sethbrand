@@ -9,13 +9,6 @@ import { Card } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert'
-import type { Metadata } from 'next'
-
-export const metadata: Metadata = {
-  title: 'SEO Analyzer (Lite) | CodeWithSeth',
-  description: 'Run a quick on-page SEO check for a URL: title, description, headings, canonical, and robots meta.',
-  alternates: { canonical: '/tools/seo-analyzer' },
-}
 
 const schema = z.object({
   url: z.string().url('Please enter a valid URL starting with https://'),
