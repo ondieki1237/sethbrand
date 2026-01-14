@@ -53,7 +53,7 @@ export function Hero() {
             size="lg"
             className="group relative overflow-hidden rounded-xl bg-gradient-to-r from-[#009688] to-[#673AB7] text-white hover:shadow-[0_0_20px_rgba(103,58,183,0.4)] transition-all"
           >
-            <a href="#projects">
+            <a href="/portfolio">
               View My Work
               <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
             </a>

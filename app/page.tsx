@@ -5,9 +5,6 @@ import { Services } from "@/components/services"
 import { Navigation } from "@/components/navigation"
 
 // Dynamically import below-the-fold components to reduce initial JS bundle
-const ProcessFlow = dynamic(() => import("@/components/process-flow").then(mod => ({ default: mod.ProcessFlow })), {
-  loading: () => <div className="h-96" />
-})
 const GraphicsShowcase = dynamic(() => import("@/components/graphics-showcase").then(mod => ({ default: mod.GraphicsShowcase })), {
   loading: () => <div className="h-96" />
 })
@@ -31,7 +28,6 @@ export default function Home() {
       <Hero />
       <About />
       <Services />
-      <ProcessFlow />
       <GraphicsShowcase />
       <Projects />
       <Testimonials />

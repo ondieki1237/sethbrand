@@ -3,7 +3,7 @@
 import { useState } from "react"
 import { Card } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
-import { ChevronLeft, ChevronRight, Quote } from "lucide-react"
+import { ChevronLeft, ChevronRight, Quote, User } from "lucide-react"
 
 const testimonials = [
   {
@@ -74,12 +74,8 @@ export function Testimonials() {
                             </blockquote>
 
                             <div className="mt-auto flex items-center">
-                              <div className="h-12 w-12 rounded-full overflow-hidden mr-4">
-                                <img
-                                  src={testimonial.imageUrl}
-                                  alt={testimonial.name}
-                                  className="h-full w-full object-cover"
-                                />
+                              <div className="h-12 w-12 rounded-full mr-4 bg-primary/10 flex items-center justify-center">
+                                <User className="h-6 w-6 text-primary/70" />
                               </div>
                               <div>
                                 <div className="font-semibold text-foreground">

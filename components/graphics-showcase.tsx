@@ -5,34 +5,80 @@ import Image from "next/image"
 
 const graphicsItems = [
   {
-    type: "Branding",
-    title: "Brand Identity Design",
-    image: "/graphics/16.webp",
+    type: "Social Campaign",
+    title: "Heroes For Her Campaign",
+    image: "/pro_samples/heroesforher_campaign.webp",
+  },
+  {
+    type: "Event Design",
+    title: "Wedding Invitation Card",
+    image: "/pro_samples/wedding_card.webp",
+  },
+  {
+    type: "Event Design",
+    title: "Wedding Poster",
+    image: "/pro_samples/wedding_poster.webp",
+  },
+  {
+    type: "Brand Identity",
+    title: "Agosti Design",
+    image: "/pro_samples/agosti.webp",
+  },
+  {
+    type: "Greeting Card",
+    title: "Thank You Card",
+    image: "/pro_samples/thankyou.webp",
   },
   {
     type: "Graphics",
-    title: "Creative Design Work",
-    image: "/graphics/17.webp",
+    title: "MM Design",
+    image: "/pro_samples/mm.webp",
   },
   {
-    type: "Promotional",
-    title: "Offer Campaigns",
-    image: "/graphics/18.webp",
+    type: "Creative Work",
+    title: "Design Sample 36",
+    image: "/pro_samples/36.webp",
   },
   {
-    type: "Events",
-    title: "Events Invitations",
-    image: "/graphics/19.webp",
+    type: "Creative Work",
+    title: "Design Sample 38",
+    image: "/pro_samples/38.webp",
   },
   {
-    type: "Logo",
-    title: "Logo Design",
-    image: "/graphics/20.webp",
+    type: "Creative Work",
+    title: "Design Sample 39",
+    image: "/pro_samples/39.webp",
+  },
+  // Posters from public/graphics
+  {
+    type: "Poster",
+    title: "Poster 16",
+    image: "/graphics/16.png",
   },
   {
-    type: "Graphics",
-    title: "Design Portfolio",
-    image: "/graphics/21.webp",
+    type: "Poster",
+    title: "Poster 17",
+    image: "/graphics/17.png",
+  },
+  {
+    type: "Poster",
+    title: "Poster 18",
+    image: "/graphics/18.png",
+  },
+  {
+    type: "Poster",
+    title: "Poster 19",
+    image: "/graphics/19.png",
+  },
+  {
+    type: "Poster",
+    title: "Poster 20",
+    image: "/graphics/20.png",
+  },
+  {
+    type: "Poster",
+    title: "Poster 21",
+    image: "/graphics/21.png",
   },
 ]
 
@@ -65,9 +111,7 @@ export function GraphicsShowcase() {
             Branding, logos, and graphics that make an impact
           </p>
           <a
-            href="https://ondieki1237.github.io/sethbellarin/"
-            target="_blank"
-            rel="noopener noreferrer"
+            href="/portfolio"
             className="inline-block mt-4 text-primary hover:underline"
           >
             View Full Portfolio →

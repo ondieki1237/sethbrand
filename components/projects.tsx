@@ -1,3 +1,6 @@
+"use client"
+
+import { useState } from "react"
 import { Card } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { ExternalLink, Lock } from "lucide-react"
@@ -45,6 +48,38 @@ export function Projects() {
       tags: ["Next.js", "Fitness", "Portfolio"],
       link: "https://cadiet.vercel.app/",
     },
+    {
+      title: "MyKitchen",
+      description:
+        "Vegan recipe site with 700+ recipes, curated collections, and intuitive search. Built for performance and accessibility.",
+      image: "/mykitchen.png",
+      tags: ["Next.js", "Recipes", "SEO"],
+      link: "https://mykitchen.codewithseth.co.ke/",
+    },
+    {
+      title: "Dhamira Imara",
+      description:
+        "Financial management system for NGOs with budgeting, reporting, and donor management features.",
+      image: "/dhamira.png",
+      tags: ["Next.js", "Finance", "NGO"],
+      link: "https://www.dhamiraimara.org/",
+    },
+    {
+      title: "Elevate (HR System)",
+      description:
+        "Bulk HR management system currently being built to handle payroll, attendance, and employee lifecycle.",
+      image: "/pro_samples/elevate-hr.webp",
+      tags: ["HR", "Dashboard", "Enterprise"],
+      link: "https://hr.codewithseth.co.ke/",
+    },
+    {
+      title: "API to PDF",
+      description:
+        "PDF generation microservice that converts HTML/URLs to paginated PDFs for reports and exports.",
+      image: "/api_pdf.png",
+      tags: ["API", "PDF", "Microservice"],
+      link: "https://api-pdf.codewithseth.co.ke/",
+    },
   ]
 
   const privateProjects = [
@@ -71,6 +106,9 @@ export function Projects() {
     },
   ]
 
+  const [showAll, setShowAll] = useState(false)
+  const visibleProjects = showAll ? publicProjects : publicProjects.slice(0, 3)
+
   return (
     <section id="projects" className="py-20 px-4 sm:px-6 lg:px-8">
       <div className="container mx-auto max-w-6xl">
@@ -89,7 +127,7 @@ export function Projects() {
             </div>
 
             <div className="grid gap-8">
-              {publicProjects.map((project, index) => (
+              {visibleProjects.map((project, index) => (
                 <Card
                   key={project.title}
                   className={`overflow-hidden bg-card border-border hover:border-primary transition-all duration-300 ${index % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"
@@ -128,6 +166,14 @@ export function Projects() {
                 </Card>
               ))}
             </div>
+
+            {publicProjects.length > 3 && (
+              <div className="text-center">
+                <Button variant="outline" size="lg" onClick={() => setShowAll(!showAll)}>
+                  {showAll ? 'Show less' : 'See more'}
+                </Button>
+              </div>
+            )}
           </div>
 
           {/* Private Enterprise Projects */}
@@ -163,16 +209,7 @@ export function Projects() {
             </div>
           </div>
 
-          {/* Design Portfolio Link */}
-          <div className="text-center">
-            <p className="text-muted-foreground mb-4">Want to see my graphic design work?</p>
-            <Button asChild variant="outline" size="lg">
-              <a href="https://ondieki1237.github.io/sethbellarin/" target="_blank" rel="noopener noreferrer">
-                View Design Portfolio
-                <ExternalLink className="ml-2 h-4 w-4" />
-              </a>
-            </Button>
-          </div>
+          {/* Design portfolio removed as requested */}
         </div>
       </div>
     </section>
